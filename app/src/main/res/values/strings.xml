@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">CPU-R</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Центральные процессоры</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_about">О приложении</string>
+    <string name="update_description">Обновить данные?</string>
+    <string name="loading_description">Данные обновляются:</string>
+    <string name="Yes">Да</string>
+    <string name="No">Нет</string>
+    <string name="menu_elbrus">Эльбрус</string>
+    <string name="menu_baikal">Baikal</string>
+    <string name="menu_db_updater">Обновить данные</string>
+    <string name="menu_compare">Сравнить процессоры</string>
+    <string name="menu_shop">Магазин</string>
+    <string name="desc_main">Главная</string>
+    <string name="desc_core">Ядро</string>
+    <string name="desc_memory">Память</string>
+    <string name="desc_mark">Производительность</string>
+    <string name="desc_other">Другое</string>
+    <string name="updateError">Произошла ошибка обновления данных!</string>
+    <string name="updateStop">Остановить</string>
+    <string name="newVersionUpdate">Вышла новая версия приложения, скачать?</string>
+    <string name="none">Неизвестно</string>
+    <string name="buy">Купить</string>
+</resources>

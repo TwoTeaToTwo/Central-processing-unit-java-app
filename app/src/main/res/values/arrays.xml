@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="elbrus_link">
+        <item>http://www.mcst.ru/elbrus-2c-plus</item>
+        <item>http://www.mcst.ru/elbrus-8c</item>
+        <item>http://www.mcst.ru/elbrus</item>
+        <item>http://www.mcst.ru/elbrus-1c-plus</item>
+        <item>http://www.mcst.ru/elbrus-2c3</item>
+        <item>http://www.mcst.ru/elbrus-4c</item>
+        <item>http://www.mcst.ru/elbrus-8sv</item>
+        <item>http://www.mcst.ru/elbrus-12c</item>
+        <item>http://www.mcst.ru/elbrus-16c</item>
+        <item>http://www.mcst.ru/r500</item>
+        <item>http://www.mcst.ru/r500s</item>
+        <item>http://www.mcst.ru/r1000</item>
+        <item>http://www.mcst.ru/r2000</item>
+        <item>http://www.mcst.ru/r2000-plus</item>
+        <item>http://www.mcst.ru/elbrus-s</item>
+    </string-array>
+
+    <string-array name="baikal_link">
+        <item>https://ru.wikipedia.org/wiki/Baikal-T1</item>
+        <item>https://ru.wikipedia.org/wiki/Baikal-M</item>
+        <item>https://ru.wikipedia.org/wiki/Baikal-S</item>
+    </string-array>
+
+
+    <integer-array name="i_elbrus2000">
+        <item>3</item>
+        <item>12</item>
+        <item>1</item>
+    </integer-array>
+    <integer-array name="i_elbrusS">
+        <item>3</item>
+        <item>20</item>
+        <item>3</item>
+    </integer-array>
+    <integer-array name="i_elbrus2c">
+        <item>6</item>
+        <item>20</item>
+        <item>3</item>
+    </integer-array>
+    <integer-array name="i_elbrus4c">
+        <item>13</item>
+        <item>32</item>
+        <item>13</item>
+    </integer-array>
+    <integer-array name="i_elbrus1cp">
+        <item>3</item>
+        <item>40</item>
+        <item>3</item>
+    </integer-array>
+    <integer-array name="i_elbrus8c">
+        <item>25</item>
+        <item>52</item>
+        <item>25</item>
+    </integer-array>
+    <integer-array name="i_elbrus8cb">
+        <item>25</item>
+        <item>60</item>
+        <item>25</item>
+    </integer-array>
+    <integer-array name="i_elbrus2c3">
+        <item>3</item>
+        <item>80</item>
+        <item>6</item>
+    </integer-array>
+    <integer-array name="i_elbrus12c">
+        <item>38</item>
+        <item>80</item>
+        <item>38</item>
+    </integer-array>
+    <integer-array name="i_elbrus16c">
+        <item>50</item>
+        <item>80</item>
+        <item>50</item>
+    </integer-array>
+    <integer-array name="i_elbrus32c">
+        <item>80</item>
+        <item>100</item>
+        <item>100</item>
+    </integer-array>
+
+</resources>

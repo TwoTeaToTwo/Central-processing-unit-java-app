@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_image_background"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="10dp"
+    android:onClick="onClickImageDialog"
+    android:orientation="vertical"
+    android:scaleType="centerCrop">
+
+
+    <TextView
+        android:id="@+id/textViewImageDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text=""
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imageViewDialog"
+        app:srcCompat="@drawable/ic_cpu_small"
+        android:maxHeight="300dp"
+        android:maxWidth="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"/>
+
+</LinearLayout>
