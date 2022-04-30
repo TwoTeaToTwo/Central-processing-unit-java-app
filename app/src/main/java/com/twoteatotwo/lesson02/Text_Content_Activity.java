@@ -50,13 +50,13 @@ public class Text_Content_Activity extends AppCompatActivity {
     private int position;
 
     private float value_i;
-    private float value_max = 2500;
+    private float value_max = 2500; //максимальная частота процессоров
     private String value_s;
     private float count_i;
-    private float count_max = 32;
+    private float count_max = 32; //максимальное кол-во ядер процессора
     private String count_s;
     private float cache_i;
-    private float cache_max = 32;
+    private float cache_max = 32; //максимальный размер кэша процессора в МБайт
     private String cache_s;
     private String name;
     private float progress;
@@ -83,7 +83,7 @@ public class Text_Content_Activity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_action_close);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_action_close); //высвечивать кнопку закрытия
 
         text_content.add(findViewById(R.id.cpu_name));
         text_content.add(findViewById(R.id.cpunitcount));
@@ -122,12 +122,16 @@ public class Text_Content_Activity extends AppCompatActivity {
           text_content.get(2).setText(value_s);
           text_content.get(3).setText(cache_s);
 
+          //заполнение прогресс баров
+
           progress =  Math.min((Math.round((count_i/count_max)*100)),100);
           bar_content.get(0).setProgress(Math.round(progress));
           progress =  Math.min(Math.round((value_i/value_max)*100),100);
           bar_content.get(1).setProgress(Math.round(progress));
           progress =  Math.min(Math.round((cache_i/cache_max)*100),100);
           bar_content.get(2).setProgress(Math.round(progress));
+
+          //установление иконок процессоров
 
           if(isWiki) {
               array_image_elbrus.add(R.drawable.im_elbrus2000);
@@ -227,9 +231,11 @@ public class Text_Content_Activity extends AppCompatActivity {
                 string, Toast.LENGTH_SHORT);
         toast.show();
     }
+
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void setDataFromArray(){
-        for(int i = 0; i <arrayList.size();i++){
+        for(int i = 0; i <arrayList.size();i++){ //получение частоты процессора из листа с данными
             if(arrayList.get(i).contains("МГц") || arrayList.get(i).contains("ГГц")){
                 String str = "";
                 String tmp = arrayList.get(i);
@@ -256,7 +262,7 @@ public class Text_Content_Activity extends AppCompatActivity {
         }
 
 
-        for(int i = 0; i <arrayList.size();i++){
+        for(int i = 0; i <arrayList.size();i++){ //получение кол-ва ядер процессора из листа с данными
             if(arrayList.get(i).contains("ядер")){
                 String str = "";
                 String tmp = arrayList.get(i);
@@ -279,7 +285,7 @@ public class Text_Content_Activity extends AppCompatActivity {
 
         cache_i = 1;
         cache_s = "Кэш: 0 МБ";
-        for(int i = 0; i <arrayList.size();i++){
+        for(int i = 0; i <arrayList.size();i++){ //получение кэша процессора из листа с данными
             if(arrayList.get(i).contains("МБ") || arrayList.get(i).contains("Мб")){
                 String str = "";
                 String tmp = arrayList.get(i);

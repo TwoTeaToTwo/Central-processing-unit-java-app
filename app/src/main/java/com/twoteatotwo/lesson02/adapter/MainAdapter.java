@@ -56,7 +56,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         }
 
         public void setData(String text, Drawable drawable) {
-            if(text.contains("*")){
+            if(text.contains("*")){ //закрашиваем красным, если это заголовок(заголовок содержит '*')
                 constraintLayout.setBackground(drawable);
                 constraintLayout.setMaxHeight(40);
             } else tvTitle.setText(text);
