@@ -87,12 +87,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String updateLink;
     final Handler handler = new Handler();
 
-    private int category1 = 0;
-    private int position1 = 0;
-    private String name1 = "";
-    private boolean isWiki1 = false;
-    private ArrayList<String> array_description1 = new ArrayList<>();
-    private boolean isError = false;
+    private int category1 = 0; //temp var for compare intent
+    private int position1 = 0; //temp var for compare intent
+    private String name1 = ""; //temp var for compare intent
+    private boolean isWiki1 = false; //temp var for compare intent
+    private ArrayList<String> array_description1 = new ArrayList<>(); //temp var for compare intent
+    private boolean isError = false; //var for getting errors
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,12 +110,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getDataFromDB();
 
         if(elbrus_name_array.size() == 0) {
-            makeDialog(4,"");
+            makeToast("Необходимо обновить данные при первом запуске!");
+            makeDialog(0,""); //show download data if first launch
         }
 
         list = findViewById(R.id.list_view);
         array = elbrus_name_array.toArray( new String[0]);     //getResources().getStringArray(null) ;
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array) ) );
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array) ) ); //make adapter for main menu recylerview
         list.setAdapter(adapter);
 
         drawer = findViewById(R.id.drawer_layout);
@@ -136,8 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getNewVersion();
 
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
 
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -147,11 +147,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (index_category != 3) {
                     getArrayDataFromDB();
                     getDataFromArrayById(index_category, i);
-                    category1 = 0;
-                    position1 = 0;
-                    name1 = "";
-                    isWiki1 = false;
-                    array_description1.clear();
+                    category1 = 0; //clear temp var for compare
+                    position1 = 0; //clear temp var for compare
+                    name1 = ""; //clear temp var for compare
+                    isWiki1 = false; //clear temp var for compare
+                    array_description1.clear(); //clear temp var for compare
 
                     Intent intent = new Intent(MainActivity.this, Text_Content_Activity.class);
                     intent.putExtra("category", index_category);
@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     if (index_category == 0) {
                         intent.putExtra("name", elbrus_name_array.get(i));
-                        intent.putExtra("isWiki", !(elbrus_name_array.get(0).contains("Эльбрус-2С+")));
+                        intent.putExtra("isWiki", !(elbrus_name_array.get(0).contains("Эльбрус-2С+"))); //for getting elbrus data from wikipedia
                         intent.putStringArrayListExtra("list", elbrus_description_array);
 
                     } else {
@@ -171,8 +171,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     startActivity(intent);
-                    tap_count = 0;
-                } else {
+                    tap_count = 0; //reset tap counter in compare menu
+                } else { //compare menu code
                     getArrayDataFromDB();
                     tap_count+=1;
                     if(tap_count == 1){
@@ -336,7 +336,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                     addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
                     addNewDataToDB(false, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
-                    addNewDataToDB(true, DBHelper.TABLE_NAMES_BAIKAL, baikal_name_array);
+                    addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
                     addNewDataToDB(false, DBHelper.TABLE_NAMES_BAIKAL, baikal_name_array);
 
                     getCPUElbrusData();
@@ -352,11 +352,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
                     });
                 } else {
+                    getArrayDataFromDB();
+                    if (arrayList_of_baikal_descriptions.size() == 0 || arrayList_of_elbrus_descriptions.size() == 0){
+                        addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
+                        addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
+                        elbrus_name_array.clear();
+                        baikal_name_array.clear();
+                    }
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
                             dialog.cancel();
-                            makeDialog(2, "Данные не обновлены!");
+                            makeDialog(5, "Данные не обновлены!");
 
                         }
                     });
@@ -376,7 +383,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return;
         }
         ContentValues contentValues = new ContentValues();
-        Gson gson = new Gson();
+        Gson gson = new Gson(); //var for export data to json
         String inputString= gson.toJson(arrayList);
         contentValues.put(DBHelper.KEY_NAME, inputString);
         database.insert(table, null, contentValues);
@@ -388,7 +395,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         String outputString;
-        Gson gson = new Gson();
+        Gson gson = new Gson(); //var for import data from json
 
         Cursor cursor = database.query(DBHelper.TABLE_NAMES_ELBRUS, null, null, null,null,null,null);
         if(cursor!=null && cursor.getCount() > 0) {
@@ -416,7 +423,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void getDataFromArrayById( int id, int position){
-        Gson gson = new Gson();
+        Gson gson = new Gson(); //var for import data from json
         Type type = new TypeToken<ArrayList<String>>() {}.getType();
         String outputString;
         switch (id){
@@ -437,7 +444,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         String outputString;
-        Gson gson = new Gson();
+        Gson gson = new Gson(); //var for import data from json
         arrayList_of_elbrus_descriptions.clear();
         Cursor cursor = database.query(DBHelper.TABLE_ELBRUS, null, null, null, null, null, null);
         if (cursor != null && cursor.getCount() > 0) {
