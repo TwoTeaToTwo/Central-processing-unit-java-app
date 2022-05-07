@@ -21,6 +21,8 @@ public class Web_Content_Activity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_action_close);
+        actionBar.setBackgroundDrawable(getDrawable(R.color.red_500));
+        actionBar.setTitle("Магазин");
 
         WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);

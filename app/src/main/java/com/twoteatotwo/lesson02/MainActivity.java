@@ -31,6 +31,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ArrayList<String> arrayList_of_baikal_descriptions = new ArrayList<>();
     private Thread thread;
     private int tap_count = 0;
-    public static final int APP_VERSION = 3;
+    public static final int APP_VERSION = 4;
     private int new_appVersion = 0;
     private String updateLink;
     final Handler handler = new Handler();
@@ -102,6 +103,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
+
         elbrusLinks = getResources().getStringArray(R.array.elbrus_link);
         baikalLinks = getResources().getStringArray(R.array.baikal_link);
 
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         list = findViewById(R.id.list_view);
         array = elbrus_name_array.toArray( new String[0]);     //getResources().getStringArray(null) ;
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<String>(Arrays.asList(array) ) ); //make adapter for main menu recylerview
+        adapter = new ArrayAdapter<>(this, R.layout.list_item_1, new ArrayList<String>(Arrays.asList(array) ) ); //make adapter for main menu recylerview
         list.setAdapter(adapter);
 
         drawer = findViewById(R.id.drawer_layout);
@@ -336,7 +340,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                     addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
                     addNewDataToDB(false, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
-                    addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
+                    addNewDataToDB(true, DBHelper.TABLE_NAMES_BAIKAL, elbrus_name_array);
                     addNewDataToDB(false, DBHelper.TABLE_NAMES_BAIKAL, baikal_name_array);
 
                     getCPUElbrusData();
@@ -355,7 +359,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     getArrayDataFromDB();
                     if (arrayList_of_baikal_descriptions.size() == 0 || arrayList_of_elbrus_descriptions.size() == 0){
                         addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
-                        addNewDataToDB(true, DBHelper.TABLE_NAMES_ELBRUS, elbrus_name_array);
+                        addNewDataToDB(true, DBHelper.TABLE_NAMES_BAIKAL, elbrus_name_array);
                         elbrus_name_array.clear();
                         baikal_name_array.clear();
                     }
@@ -398,6 +402,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Gson gson = new Gson(); //var for import data from json
 
         Cursor cursor = database.query(DBHelper.TABLE_NAMES_ELBRUS, null, null, null,null,null,null);
+        Log.d("Mylog","" + cursor.getCount());
         if(cursor!=null && cursor.getCount() > 0) {
             if (cursor.moveToFirst()) {
                 int nameIndex = cursor.getColumnIndex(DBHelper.KEY_NAME);
@@ -490,11 +495,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if(type == 3){
             dialog.setContentView(R.layout.update_dialog);
         } else if(type == 4){
-            dialog.setContentView(R.layout.image_dialog);
-            ImageView image = dialog.findViewById(R.id.imageViewDialog);
-            image.setImageResource(R.drawable.ic_tutorial);
-            image.setMaxHeight(2000);
-            image.setMaxWidth(2000);
         } else if(type == 5){
             dialog.setContentView(R.layout.text_dialog);
             TextView textview = dialog.findViewById(R.id.dialog_text);
@@ -634,7 +634,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 e.printStackTrace();
                             }
                         }
-                    addNewDataToDB(true,DBHelper.TABLE_ELBRUS, elbrus_description_array);
+                    addNewDataToDB(true,DBHelper.TABLE_ELBRUS, arrayList_of_elbrus_descriptions);
                     addNewDataToDB(false, DBHelper.TABLE_ELBRUS, arrayList_of_elbrus_descriptions);
 
                 } catch (IOException e) {
@@ -690,7 +690,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
 
-            addNewDataToDB(true,DBHelper.TABLE_BAIKAL, baikal_description_array);
+            addNewDataToDB(true,DBHelper.TABLE_BAIKAL, arrayList_of_baikal_descriptions);
             addNewDataToDB(false, DBHelper.TABLE_BAIKAL, arrayList_of_baikal_descriptions);
 
         } catch (IOException e) {
@@ -711,7 +711,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void run() {
                 try {
-                    document = Jsoup.connect("https://appversion.wilank.ru").get();
+                    document = Jsoup.connect("https://appversion.wilank.ru").get(); //сайт с информацией о новой версии
                     String tmp;
                     String str = "";
                     Elements elements = document.getElementsByTag("a");
@@ -762,6 +762,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         isError = true;
         getDataFromDB();
 
+    }
+
+    public void onClickSettings(MenuItem item) {
+        getDataFromDB();
     }
 
    /* private void getWeb(String url){
