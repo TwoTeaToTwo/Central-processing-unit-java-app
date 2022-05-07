@@ -15,7 +15,7 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_cpu_r_foreground" />
+        app:srcCompat="@mipmap/ic_launcher_cpu_r_foreground" />
 
     <TextView
         android:id="@+id/textView"

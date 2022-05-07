@@ -74,6 +74,8 @@ public class Text_Content_Activity extends AppCompatActivity {
     private RecyclerView mainRecycleView;
     private MainAdapter mainAdapter;
 
+    private ActionBar actionBar;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,11 +83,11 @@ public class Text_Content_Activity extends AppCompatActivity {
         setContentView(R.layout.description_content);
 
 
-        ActionBar actionBar = getSupportActionBar();
+        actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_action_close); //высвечивать кнопку закрытия
+        actionBar.setBackgroundDrawable(getDrawable(R.color.red_500));
 
-        text_content.add(findViewById(R.id.cpu_name));
         text_content.add(findViewById(R.id.cpunitcount));
         text_content.add(findViewById(R.id.cpuvalue));
         text_content.add(findViewById(R.id.cpucache));
@@ -99,7 +101,7 @@ public class Text_Content_Activity extends AppCompatActivity {
 
         mainRecycleView = findViewById(R.id.MainRecyclerView);
 
-        mainAdapter = new MainAdapter(this, getDrawable(R.color.base_red));
+        mainAdapter = new MainAdapter(this, getDrawable(R.color.red_500));
         mainRecycleView.setLayoutManager(new LinearLayoutManager(this));
         mainRecycleView.setAdapter(mainAdapter);
 
@@ -117,10 +119,10 @@ public class Text_Content_Activity extends AppCompatActivity {
           arrayList.addAll(i.getStringArrayListExtra("list"));
 
           setDataFromArray();
-          text_content.get(0).setText(name);
-          text_content.get(1).setText(count_s);
-          text_content.get(2).setText(value_s);
-          text_content.get(3).setText(cache_s);
+          actionBar.setTitle(name);
+          text_content.get(0).setText(count_s);
+          text_content.get(1).setText(value_s);
+          text_content.get(2).setText(cache_s);
 
           //заполнение прогресс баров
 

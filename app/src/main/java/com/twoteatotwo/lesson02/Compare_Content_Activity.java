@@ -83,6 +83,8 @@ public class Compare_Content_Activity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeAsUpIndicator(R.drawable.ic_action_close);
+        actionBar.setBackgroundDrawable(getDrawable(R.color.red_500));
+        actionBar.setTitle("Сравнение");
 
         text_content.add(findViewById(R.id.cpu_name1));
         text_content.add(findViewById(R.id.cpunitcount1));
@@ -185,7 +187,7 @@ public class Compare_Content_Activity extends AppCompatActivity {
 
             mainRecycleView = findViewById(R.id.recyclerViewCompare1);
 
-            mainAdapter = new MainAdapter(this, getDrawable(R.color.base_red));
+            mainAdapter = new MainAdapter(this, getDrawable(R.color.red_500));
             mainRecycleView.setLayoutManager(new LinearLayoutManager(this));
             mainRecycleView.setAdapter(mainAdapter);
             mainAdapter.updateAdapter(arrayList1);
@@ -273,7 +275,7 @@ public class Compare_Content_Activity extends AppCompatActivity {
             }
             mainRecycleView = findViewById(R.id.recyclerViewCompare2);
 
-            mainAdapter = new MainAdapter(this, getDrawable(R.color.base_red));
+            mainAdapter = new MainAdapter(this, getDrawable(R.color.red_500));
             mainRecycleView.setLayoutManager(new LinearLayoutManager(this));
             mainRecycleView.setAdapter(mainAdapter);
             mainAdapter.updateAdapter(arrayList1);

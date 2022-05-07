@@ -8,11 +8,14 @@
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/border.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/d_shborder.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_launcher_cpu_r_background.xml" value="0.2985" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_launcher_cpu_r_foreground.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_main.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2985" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/riple_1.xml" value="0.2965" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/drawable/side_nav_bar.xml" value="0.2985" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/app_bar_main.xml" value="0.36666666666666664" />
@@ -30,6 +33,8 @@
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/image_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/image_text_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/item_list_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/list_item_1.xml" value="0.36666666666666664" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/list_item_2.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/loading_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/nav_header_main.xml" value="0.2131367292225201" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/layout/text_dialog.xml" value="0.36666666666666664" />
@@ -38,6 +43,8 @@
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/menu/main.xml" value="0.36666666666666664" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/mipmap-anydpi-v26/ic_launcher_cpu_r.xml" value="0.196" />
+        <entry key="..\:/COmpiled/Lesson02/app/src/main/res/mipmap-anydpi-v26/ic_launcher_cpu_r_round.xml" value="0.2965" />
         <entry key="..\:/COmpiled/Lesson02/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2985" />
       </map>
     </option>

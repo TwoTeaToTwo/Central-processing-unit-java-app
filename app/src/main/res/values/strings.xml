@@ -6,6 +6,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_about">О приложении</string>
+    <string name="action_settings">Настройки</string>
     <string name="update_description">Обновить данные?</string>
     <string name="loading_description">Данные обновляются:</string>
     <string name="Yes">Да</string>
@@ -20,7 +21,7 @@
     <string name="desc_memory">Память</string>
     <string name="desc_mark">Производительность</string>
     <string name="desc_other">Другое</string>
-    <string name="updateError">Произошла ошибка обновления данных!</string>
+    <string name="updateError">Произошла ошибка обновления данных, или обновление было остановлено!</string>
     <string name="updateStop">Остановить</string>
     <string name="newVersionUpdate">Вышла новая версия приложения, скачать?</string>
     <string name="none">Неизвестно</string>
